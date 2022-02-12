@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) throws IOException {
-        final int port = 1250;
+        final int port = 1251;
 
         // Lets user select server by scanning input.
         Scanner sc = new Scanner(System.in);
@@ -37,9 +37,13 @@ public class Client {
             line3 = sc.nextLine();
         }
 
-        // Close connection.
-        reader.close();
-        writer.close();
-        connection.close();
+        try {
+            // Close writer, reader and connection.
+            writer.close();
+            reader.close();
+            connection.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
