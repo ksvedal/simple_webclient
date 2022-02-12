@@ -11,13 +11,13 @@ public class Server {
 
         // Set up server socket and wait for connection.
         ServerSocket server = new ServerSocket(port);
-        System.out.println("Serverside log. Waiting for connection... ");
+        System.out.println("Serverside log... ");
         Socket connection = server.accept();
 
         // Opens a connection for communication with client using streams.
         InputStreamReader read_connection = new InputStreamReader(connection.getInputStream());
         BufferedReader reader = new BufferedReader(read_connection);
-        PrintWriter writer = new PrintWriter(connection.getOutputStream());
+        PrintWriter writer = new PrintWriter(connection.getOutputStream(), true);
 
         // Sends startup message to client.
         writer.println("Contact with server!");

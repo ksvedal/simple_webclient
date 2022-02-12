@@ -16,12 +16,12 @@ public class Client {
 
         // Sets up connection to server.
         Socket connection = new Socket(server_machine, port);
-        System.out.println("Connection established to" + server_machine);
+        System.out.println("Connection established to " + server_machine);
 
         // Opens a connection for communication with server using streams.
         InputStreamReader read_connection = new InputStreamReader(connection.getInputStream());
         BufferedReader reader = new BufferedReader(read_connection);
-        PrintWriter writer = new PrintWriter(connection.getOutputStream());
+        PrintWriter writer = new PrintWriter(connection.getOutputStream(), true);
 
         // Reads startup message from server and writes to terminal.
         String line1 = reader.readLine();
