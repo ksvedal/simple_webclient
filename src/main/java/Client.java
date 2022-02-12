@@ -18,12 +18,12 @@ public class Client {
         Socket connection = new Socket(server_machine, port);
         System.out.println("Connection established to" + server_machine);
 
-        // Opens a connection for communication with server.
+        // Opens a connection for communication with server using streams.
         InputStreamReader read_connection = new InputStreamReader(connection.getInputStream());
         BufferedReader reader = new BufferedReader(read_connection);
         PrintWriter writer = new PrintWriter(connection.getOutputStream());
 
-        // Reads from server and writes to terminal.
+        // Reads startup message from server and writes to terminal.
         String line1 = reader.readLine();
         String line2 = reader.readLine();
         System.out.println(line1 + "\n" + line2);
