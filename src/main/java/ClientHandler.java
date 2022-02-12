@@ -27,7 +27,6 @@ public class ClientHandler extends Thread {
         String operation = "";
 
         writer.println("Connection established.");
-        writer.println("Pressing enter with an empty terminal exits the application.");
 
         while (line != null) {
             try {
@@ -47,13 +46,15 @@ public class ClientHandler extends Thread {
                 } else if (operation.equals("2")) {
                     writer.println("Result: " + subtract(x, y));
                 } else {
-                    writer.println("something went wrong. Try again.");
+                    writer.println("something went wrong. Sorry.");
+                    line = null;
                 }
-
                 line = null;
 
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                System.out.println("Connection with client on thread " + currentThread().getId() + " closed");
             }
 
             try {
