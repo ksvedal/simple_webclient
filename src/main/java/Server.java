@@ -7,33 +7,29 @@ import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) throws IOException {
-        final int port = 1250;
+        final int port = 1251;
 
-        // Set up server socket and wait for connection.
-        ServerSocket server = new ServerSocket(port);
-        System.out.println("Serverside log... ");
-        Socket connection = server.accept();
+        try {
+            // Set up server socket and wait for connection.
+            ServerSocket server = new ServerSocket(port);
+            System.out.println("Server initialized.");
 
-        // Opens a connection for communication with client using streams.
-        InputStreamReader read_connection = new InputStreamReader(connection.getInputStream());
-        BufferedReader reader = new BufferedReader(read_connection);
-        PrintWriter writer = new PrintWriter(connection.getOutputStream(), true);
+            while (true) {
+                // Accept client connection request.
+                Socket connection = server.accept();
 
-        // Sends startup message to client.
-        writer.println("Contact with server!");
-        writer.println("Write what you want and i will repeat it. Use enter key quit.");
+                // Set up streams, reader and writer.
+                InputStreamReader streamReader = new InputStreamReader(connection.getInputStream());
+                BufferedReader reader = new BufferedReader(streamReader);
+                PrintWriter writer = new PrintWriter(connection.getOutputStream(), true);
 
-        // Receive data from client.
-        String line3 = reader.readLine(); // Receive line of text.
-        while (line3 != null) { // Connection on client side is closed.
-            System.out.println("Client wrote: " + line3);
-            writer.println("You wrote: " + line3); // Repeats line to client.
-            line3 = reader.readLine();
+                // Send request to separate thread
+                Thread thread = new ClientHandler(connection, reader, writer);
+                thread.start();
+                System.out.println("Connection established to a client using thread: " + thread.getId());
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
-
-        // Close connection.
-        reader.close();
-        writer.close();
-        connection.close();
     }
 }
