@@ -9,9 +9,7 @@ public class ClientHandler extends Thread {
     final BufferedReader reader;
     final PrintWriter writer;
 
-    public ClientHandler(Socket connection,
-                         BufferedReader reader,
-                         PrintWriter writer) {
+    public ClientHandler(Socket connection, BufferedReader reader, PrintWriter writer) {
         this.connection = connection;
         this.reader = reader;
         this.writer = writer;
