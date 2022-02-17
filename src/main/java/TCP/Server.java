@@ -1,3 +1,5 @@
+package TCP;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +14,7 @@ public class Server {
         try {
             // Set up server socket and wait for connection.
             ServerSocket server = new ServerSocket(port);
-            System.out.println("Server initialized.");
+            System.out.println("TCP.Server initialized.");
 
             while (true) {
                 // Accept client connection request.
