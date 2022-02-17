@@ -3,6 +3,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/**
+ * ClientHandler (using thread) that asks user for two numbers and lets them add or subtract
+ * these two.
+ */
 public class ClientHandler extends Thread {
 
     Socket connection;
