@@ -19,8 +19,8 @@ import javax.net.ssl.SSLSocketFactory;
  * $ keytool -genkey -alias signFiles -keystore examplestore
  *
  * Run SSL server and client by entering the commands:
- * $ java -jar -Djavax.net.ssl.keyStore=keystore -Djavax.net.ssl.keyStorePassword=password "...JavaSSLServer.jar"
- * $ java -jar -Djavax.net.ssl.trustStore=keystore -Djavax.net.ssl.trustStorePassword=password "...JavaSSLClient.jar"
+ * $ java -jar -Djavax.net.ssl.keyStore=keystore -Djavax.net.ssl.keyStorePassword=password "...Server.jar"
+ * $ java -jar -Djavax.net.ssl.trustStore=keystore -Djavax.net.ssl.trustStorePassword=password "...Client.jar"
  */
 public class Client {
 

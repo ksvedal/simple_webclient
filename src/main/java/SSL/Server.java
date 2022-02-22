@@ -16,11 +16,11 @@ import javax.net.ssl.SSLServerSocketFactory;
  *
  * Without keystore, both server and client will fail.
  * Type the following command in your command window to create a keystore named examplestore and to generate keys:
- * $ keytool -genkey -alias signFiles -keystore examplestore
+ * $ keytool -genkey -keyalg RSA -alias signFiles -keystore examplestore
  *
  * Run SSL server and client by entering the commands:
- * $ java -jar -Djavax.net.ssl.keyStore=keystore -Djavax.net.ssl.keyStorePassword=password "...JavaSSLServer.jar"
- * $ java -jar -Djavax.net.ssl.trustStore=keystore -Djavax.net.ssl.trustStorePassword=password "...JavaSSLClient.jar"
+ * $ java -jar -Djavax.net.ssl.keyStore=keystore -Djavax.net.ssl.keyStorePassword=password "...Server.jar"
+ * $ java -jar -Djavax.net.ssl.trustStore=keystore -Djavax.net.ssl.trustStorePassword=password "...Client.jar"
  */
 public class Server {
 
