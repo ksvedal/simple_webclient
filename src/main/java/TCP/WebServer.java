@@ -25,13 +25,13 @@ public class WebServer {
 
         final String htmlPrint =
                 "HTTP/1.0 200 OK \n" +
-                        "Content-Type: text/html; charset=utf-8 \n" +
-                        "\n" +
-                        "<html> <body>" +
-                        "<h1> Web T. Jenner </h1>" +
-                        "Header: " +
-                        header +
-                        "</body></html>";
+                "Content-Type: text/html; charset=utf-8 \n" +
+                "\n" +
+                "<html> <body>" +
+                "<h1> Web T. Jenner </h1>" +
+                "Header: " +
+                header +
+                "</body></html>";
 
         writer.println(htmlPrint);
         writer.close();
