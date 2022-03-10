@@ -16,12 +16,12 @@ public class WebServer {
         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         PrintWriter writer = new PrintWriter(connection.getOutputStream(), true);
 
-        StringBuilder head = new StringBuilder("<br>");
+        StringBuilder header = new StringBuilder("<br>");
         for (int i = 0; i < 14; i++) {
-            head.append("<br>").append(reader.readLine());
+            header.append("<br>").append(reader.readLine());
         }
 
-        System.out.println(head);
+        System.out.println(header);
 
         final String htmlPrint =
                 "HTTP/1.0 200 OK \n" +
@@ -30,7 +30,7 @@ public class WebServer {
                         "<html> <body>" +
                         "<h1> Web T. Jenner </h1>" +
                         "Header: " +
-                        head +
+                        header +
                         "</body></html>";
 
         writer.println(htmlPrint);
